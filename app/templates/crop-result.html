@@ -1,0 +1,49 @@
+{% extends 'layout.html' %} {% block body %}
+<section class="banner_w3lspvt" id="home">
+	<div class="csslider infinity" id="slider1">
+
+				<div class="banner-topc">
+					<div class="overlay">
+						<div class="container">
+							<div class="w3layouts-banner-info text-center">
+
+								<h3 class="text-wh">Crop prediction</h3>
+								<h4 class="text-wh mx-auto my-4"><b>Crop prediction tools empower farmers to mitigate risks, optimize resources, and enhance overall productivity.</b></h4>
+								<br>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+	</div>
+</section>
+<!-- //banner -->
+<style>
+
+    html body {
+      background-color: rgb(196, 164, 132 );
+
+
+  }
+
+
+</style>
+<style>
+  .mt-0 {
+  margin-top: 50 !important;
+}
+</style>
+
+
+<div class="container py-2 mx-auto my-50 h-10 " style="margin: 12rem;">
+  <div class="row">
+      <div class="col-sm py-2 py-md-3">
+          <div class="card card-body" style="justify-content: center;">
+               <h1 class="text-center"><b>
+Considering your farm's unique characteristics, <i>{{ prediction }} - {{ extra_text }}</i> emerges as the optimal choice. Its compatibility with your land and favorable market outlook ensure a successful cultivation season.</b></h1>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

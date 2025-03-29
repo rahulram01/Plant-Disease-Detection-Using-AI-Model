@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!-- banner -->
+<head>
+	<title>{{ title }}</title>
+
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<style>
+		html {
+			font-size: 1rem;
+		}
+
+		@media (min-width: 576px) {
+			html {
+				font-size: 1.25rem;
+			}
+		}
+
+		@media (min-width: 768px) {
+			html {
+				font-size: 1.5rem;
+			}
+		}
+
+		@media (min-width: 992px) {
+			html {
+				font-size: 1.75rem;
+			}
+		}
+
+		@media (min-width: 1200px) {
+			html {
+				font-size: 2rem;
+			}
+
+			html {
+				font-size: 1rem;
+			}
+
+			h1 {
+				font-size: 1.2rem;
+			}
+
+			h2 {
+				font-size: 1.0rem;
+			}
+
+			@media (min-width: 768px) {
+				html {
+					font-size: 1.1rem;
+				}
+
+				h1 {
+					font-size: 1.3rem;
+				}
+
+				h2 {
+					font-size: 1,0rem
+				}
+			}
+
+			@media (min-width: 991px) {
+				html {
+					font-size: 1.2rem;
+				}
+
+				h1 {
+					font-size: 1.5rem;
+				}
+
+				h2 {
+					font-size: 1.0rem;
+				}
+			}
+
+			@media (min-width: 1200px) {
+				html {
+					font-size: 1.2rem;
+				}
+
+				h1 {
+					font-size: 1.7rem;
+				}
+
+				h2 {
+					font-size: 1.0rem;
+				}
+			}
+
+		}
+	</style>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+
+	</script>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	</body>
+	<!-- css files -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel='stylesheet' type='text/css' />
+	<!-- bootstrap css -->
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel='stylesheet' type='text/css' />
+	<!-- custom css -->
+	<link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet"><!-- fontawesome css -->
+	<!-- //css files -->
+	<!-- <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png?') }}"> -->
+
+
+	<script type="text/JavaScript" src="{{ url_for('static', filename='scripts/cities.js') }}"></script>
+
+
+	<!-- google fonts -->
+	<link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese"
+		rel="stylesheet">
+	<!-- //google fonts -->
+
+	<style>
+		header {
+			background-color: rgba(30, 30, 30, 1);
+			margin-top: 0rem;
+			display: block;
+
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="background-color: #1C00ff00;">
+		<div class="container">
+			<a class="navbar-brand" href="{{ url_for('home') }}">
+				<!--MYCROP <i class="fab fa-pagelines"></i><i class="fal fa-seedling"></i>-->
+				<img src="{{ url_for('static', filename='images/LOGO.jpg') }}" style="width: 55px; height: 65px" alt="">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="{{ url_for('home') }}">Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+
+					 <li class="nav-item">
+          					<div id="google_translate_element"></div>
+        				</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+<!-- //banner -->
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+<title>Agricultural Crop Recommendation</title>
+<style>
+body{
+    <img src="{{ url_for('static', filename='images/13.jpg') }}" class="img-fluid" alt="" />
+	background-image:url(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');
+	background-repeat: no-repeat;
+	bachground-attachment:fixed;
+	background-size: cover;
+}
+</style>
+</head>
+<body>
+<div>
+
+<center>
+<h1><strong>Agricultural Crop Recommendation</strong>
+<form action="{{ url_for('predict')}}", method="POST">
+	<h1><strong><label for="nitro">Enter ratio of Nitrogen content in soil: </</label></br></strong></h1>
+    <h1><strong><input type="number" id="nitro" name="nitro" required="required" min="1" max="5000"/><br><br></strong></h1>
+    <h1><strong><label for="phos">Enter ratio of Phosphorous content in soil: </label></br></strong></h1>
+    <h1><strong><input type="number" id="phos" name="phos" required="required" min="1" max="5000"/><br><br></strong></h1>
+    <h1><strong> <label for="Potas">Enter ratio of Potassium content in soil: </label></br></strong></h1>
+    <h1><strong><input type="number" id="Potas" name="Potas" required="required" min="1" max="5000"/><br><br></strong></h1>
+    <h1><strong> <label for="temp">Enter temperature in degree Celsius: </label></br></strong></h1>
+     <h1><strong><input type="number" id="temp" name="temp" required="required" min="1" max="5000"/><br><br></strong></h1>
+    <h1><strong><label for="humi">Enter relative humidity in % : </label></br></strong></h1>
+    <h1><strong><input type="number" id="humi" name="humi" required="required" min="1" max="5000"/><br><br></strong></h1>
+    <h1><strong><label for="ph">Enter ph value of the soil: </label></br></strong></h1>
+    <h1><strong><input type="number" id="ph" name="ph" required="required" min="1" max="5000"/><br><br></strong></h1>
+    <h1><strong> <label for="rain">Enter rainfall in mm : </label></br></strong></h1>
+    <h1><strong><input type="number" id="rain" name="rain" required="required" min="1" max="5000"/><br><br></h1>
+    <button type="submit" class="btn btn-primary btn-block btn-large">Click here to Recommend</button>
+
+    <br>
+
+</form>
+</center>
+<br><br>
+
+ Project Member:<br>
+                 Ajay Adithya E<br>
+              Bharani S<br>
+
+	<!-- footer -->
+	<footer class="text-center py-5">
+		<div class="container py-md-3">
+			<!-- logo -->
+			<h2 class="logo2 text-center">
+				<a href="{{ url_for('home') }}">
+					MY-CROP
+				</a>
+			</h2>
+
+			<p class="homelogo">
+			<p>Farming made Easy</p>
+			<p>&copy; Copyright@2022 My crop</p>
+
+		</div>
+	</footer>
+	<!-- //footer -->
+
+</b>
+<br>
+
+</div>
+</body>
+</html>

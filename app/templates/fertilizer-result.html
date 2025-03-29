@@ -1,0 +1,39 @@
+{% extends 'layout.html' %} {% block body %}
+
+
+
+<style>
+  html body {
+    background-color: rgb(152, 117, 84);
+  }
+</style>
+<section class="banner_w3lspvt" id="home">
+	<div class="csslider infinity" id="slider1">
+
+				<div class="banner-topf">
+					<div class="overlay">
+						<div class="container">
+							<div class="w3layouts-banner-info text-center">
+								<h3 class="text-wh">Fertilizer</h3>
+								<h4 class="text-wh mx-auto my-4"><b>Analyzing soil composition helps tailor fertilizer predictions for optimal crop growth</b></h4>
+								<br>
+
+							</div>
+						</div>
+					</div>
+				</div>
+	</div>
+</section>
+
+
+
+<div class="container py-2 mx-auto my-50 h-10 " style="margin: 9rem;">
+  <div class="row">
+      <div class="col-sm py-2 py-md-3">
+          <div class="card card-body" style="justify-content: center; background-color:blanchedalmond">
+               <p class="text-center" style="color: black; font-size: 20px;">{{ recommendation }}</p>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

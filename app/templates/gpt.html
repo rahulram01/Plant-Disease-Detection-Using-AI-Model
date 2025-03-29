@@ -1,0 +1,129 @@
+<!-- Floating Chatbot Button -->
+<div id="chatbot-container">
+    <button id="chatbot-button" onclick="toggleChat()">💬 Chat with Bot</button>
+    <div id="chatbot-window" class="hidden">
+        <div id="chat-header">
+            <span>GPT Bot</span>
+            <button onclick="toggleChat()">✖</button>
+        </div>
+        <div id="chat-messages"></div>
+        <div id="chat-input">
+            <input type="text" id="user-input" placeholder="Ask something..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>
+
+<!-- Chatbot CSS -->
+<style>
+    #chatbot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        font-family: 'Poppins', sans-serif;
+        z-index: 1000;
+    }
+
+    #chatbot-button {
+        background: #2E7D32;
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        font-size: 16px;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #chatbot-window {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        position: fixed;
+        bottom: 70px;
+        right: 20px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #chat-header {
+        background: #2E7D32;
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #chat-messages {
+        height: 250px;
+        padding: 10px;
+        overflow-y: auto;
+        background: white;
+    }
+
+    #chat-input {
+        display: flex;
+        padding: 10px;
+        background: white;
+    }
+
+    #chat-input input {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    #chat-input button {
+        margin-left: 8px;
+        background: #2E7D32;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<!-- Chatbot JavaScript -->
+<script>
+    function toggleChat() {
+        const chatWindow = document.getElementById('chatbot-window');
+        chatWindow.classList.toggle('hidden');
+    }
+
+    function sendMessage() {
+        const inputField = document.getElementById("user-input");
+        const message = inputField.value.trim();
+        if (message === "") return;
+
+        // Append user's message
+        const chatMessages = document.getElementById("chat-messages");
+        chatMessages.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
+
+        inputField.value = ""; // Clear input
+
+        // Fetch GPT response from backend
+        fetch("/chatbot", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: message })
+        })
+        .then(response => response.json())
+        .then(data => {
+            chatMessages.innerHTML += `<div><strong>Bot:</strong> ${data.reply}</div>`;
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll
+        });
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === "Enter") sendMessage();
+    }
+</script>
